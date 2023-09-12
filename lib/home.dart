@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         child: Column(
           children: [
             Container(
@@ -36,13 +36,19 @@ class Home extends StatelessWidget {
                   color: Color.fromARGB(255, 239, 228, 228),
                   borderRadius: BorderRadius.circular(20)),
               child: TextField(
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(0),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.black,
-                        size: 20,
-                      ))),
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(0),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                    size: 20,
+                  ),
+                  prefixIconConstraints:
+                      BoxConstraints(maxHeight: 20, minWidth: 25),
+                  border: InputBorder.none,
+                  hintText: "Search",
+                ),
+              ),
             )
           ],
         ),
