@@ -23,17 +23,20 @@ class ToDoItem extends StatelessWidget {
         ),
         trailing: Container(
           padding: EdgeInsets.all(0),
-          height: 35,
-          width: 35,
+          height: 40,
+          width: 40,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.red,
             borderRadius: BorderRadius.circular(5),
           ),
           child: IconButton(
               onPressed: () {
                 print('Clicked on delete icon');
               },
-              icon: Icon(Icons.delete)),
+              icon: Icon(
+                Icons.delete_forever,
+                color: Colors.white,
+              )),
         ),
       ),
     );
