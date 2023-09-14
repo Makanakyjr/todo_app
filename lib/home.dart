@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -49,7 +50,28 @@ class Home extends StatelessWidget {
                   hintText: "Search",
                 ),
               ),
-            )
+            ),
+            Expanded(
+                child: ListView(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 40, bottom: 20),
+                  child: Text(
+                    'ToDos',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                  ),
+                ),
+                ToDoItem(),
+               
+                ToDoItem(),
+              
+                ToDoItem(),
+               
+                ToDoItem(),
+               
+                ToDoItem(), 
+              ],
+            )),
           ],
         ),
       ),
