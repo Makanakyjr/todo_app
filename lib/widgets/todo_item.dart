@@ -1,43 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/home.dart';
+import 'package:todo_app/model/todo.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  const ToDoItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: ListTile(
-        onTap: () {
-          print('Clicked on Todo Item');
-        },
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        tileColor: Colors.black12,
-        leading: Icon(
-          Icons.check_box,
-          color: Colors.blue,
-        ),
-        title: Text(
-          'Check mail',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-        ),
-        trailing: Container(
-          padding: EdgeInsets.all(0),
-          height: 40,
-          width: 40,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(5),
+    return Scaffold(
+      body: ListView.separated(
+        itemBuilder: (context, index) => ListTile(
+          leading: Checkbox(
+            value: todoList[index].isDone,
+            onChanged: (bool? newValue) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
+              todoList[index].isDone = newValue!;
+            },
           ),
-          child: IconButton(
-              onPressed: () {
-                print('Clicked on delete icon');
-              },
-              icon: Icon(
-                Icons.delete_forever,
-                color: Colors.white,
-              )),
+          title: Text("${todoList[index].todoText}"),
+          trailing: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
+              todoList.removeAt(index);
+            },
+            icon: const Icon(
+              Icons.delete,
+            ),
+          ),
         ),
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 15,
+        ),
+        itemCount: todoList.length,
       ),
     );
   }

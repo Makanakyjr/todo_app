@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/add_todo.dart';
+import 'package:todo_app/model/todo.dart';
 import 'package:todo_app/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,52 +30,61 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 239, 228, 228),
-                  borderRadius: BorderRadius.circular(20)),
-              child: TextField(
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(0),
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                    size: 20,
+      body: Column(
+        children: [
+          Flexible(
+            flex: 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+                vertical: 20,
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 239, 228, 228),
+                    borderRadius: BorderRadius.circular(20)),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                      size: 20,
+                    ),
+                    prefixIconConstraints:
+                        BoxConstraints(maxHeight: 20, minWidth: 25),
+                    border: InputBorder.none,
+                    hintText: "Search",
                   ),
-                  prefixIconConstraints:
-                      BoxConstraints(maxHeight: 20, minWidth: 25),
-                  border: InputBorder.none,
-                  hintText: "Search",
                 ),
               ),
             ),
-            Expanded(
-                child: ListView(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 40, bottom: 20),
-                  child: Text(
-                    'ToDos',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-                  ),
-                ),
-                ToDoItem(),
-               
-                ToDoItem(),
-              
-                ToDoItem(),
-               
-                ToDoItem(),
-               
-                ToDoItem(), 
-              ],
-            )),
-          ],
-        ),
+          ),
+          Flexible(
+            flex: 6,
+            child: Container(
+              child: const ToDoItem(),
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddTodo(),
+            ),
+          );
+
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => AddTodo(),
+          //     ),
+          //   );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
