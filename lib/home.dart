@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/add_todo.dart';
-import 'package:todo_app/model/todo.dart';
 import 'package:todo_app/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
