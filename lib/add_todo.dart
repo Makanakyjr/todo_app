@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/home.dart';
 import 'package:todo_app/model/todo.dart';
+import 'package:todo_app/todo_provider.dart';
 
 class AddTodo extends StatelessWidget {
   AddTodo({super.key});
@@ -25,13 +27,9 @@ class AddTodo extends StatelessWidget {
               Map<String, dynamic> item = {
                 'title': titleController.text,
               };
-              addTodoItem(item);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Home(),
-                ),
-              );
+              Provider.of<TodoProvider>(context, listen: false)
+                  .addTodoItem(item);
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.add,

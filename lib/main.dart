@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/home.dart';
+import 'package:todo_app/todo_provider.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => TodoProvider(),
+      child: const MyApp(),
+    ),
   );
 }
 

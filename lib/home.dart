@@ -9,17 +9,17 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(131, 239, 242, 243),
+        backgroundColor: const Color.fromARGB(131, 239, 242, 243),
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(
+            const Icon(
               Icons.menu,
               color: Colors.black,
               size: 30,
             ),
-            Container(
+            SizedBox(
               height: 40,
               width: 40,
               child: ClipRRect(
