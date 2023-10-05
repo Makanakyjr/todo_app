@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/add_todo.dart';
 import 'package:todo_app/widgets/todo_item.dart';
@@ -29,44 +30,59 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Flexible(
-            flex: 1,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 25,
-                vertical: 20,
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 239, 228, 228),
-                    borderRadius: BorderRadius.circular(20)),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                      size: 20,
-                    ),
-                    prefixIconConstraints:
-                        BoxConstraints(maxHeight: 20, minWidth: 25),
-                    border: InputBorder.none,
-                    hintText: "Search",
+      body: FutureBuilder(
+          future: FirebaseFirestore.instance.collection("Todos").get(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(
+                child: Text(
+                  'No todos',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
+              );
+            }
+            return SingleChildScrollView(
+              child: Column(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 25,
+                        vertical: 20,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 239, 228, 228),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(0),
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.black,
+                              size: 20,
+                            ),
+                            prefixIconConstraints:
+                                BoxConstraints(maxHeight: 20, minWidth: 25),
+                            border: InputBorder.none,
+                            hintText: "Search",
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Flexible(
+                    flex: 6,
+                    child: ToDoItem(),
+                  )
+                ],
               ),
-            ),
-          ),
-          Flexible(
-            flex: 6,
-            child: Container(
-              child: const ToDoItem(),
-            ),
-          )
-        ],
-      ),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
