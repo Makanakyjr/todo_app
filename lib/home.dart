@@ -4,7 +4,7 @@ import 'package:todo_app/add_todo.dart';
 import 'package:todo_app/widgets/todo_item.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,21 @@ class Home extends StatelessWidget {
               size: 30,
             ),
             SizedBox(
-              height: 40,
-              width: 40,
+              height: 50,
+              width: 50,
               child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.asset('assets/yak.jpg')),
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset(
+                    'assets/yak.jpg',
+                  )),
             ),
+            const SizedBox(
+              child: Icon(
+                Icons.settings,
+                color: Colors.black,
+                size: 30,
+              ),
+            )
           ],
         ),
       ),
@@ -44,46 +53,47 @@ class Home extends StatelessWidget {
                 ),
               );
             }
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 25,
-                        vertical: 20,
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 239, 228, 228),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: const TextField(
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(0),
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                              size: 20,
-                            ),
-                            prefixIconConstraints:
-                                BoxConstraints(maxHeight: 20, minWidth: 25),
-                            border: InputBorder.none,
-                            hintText: "Search",
+            return Column(
+              children: [
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 25,
+                      vertical: 20,
+                    ),
+                    child: Container(
+                      height: 50,
+                      width: 300,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(243, 246, 246, 246),
+                          borderRadius: BorderRadius.circular(30),),
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(0),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.black,
+                            size: 20,
                           ),
+                          prefixIconConstraints:
+                              BoxConstraints(maxHeight: 80, minWidth: 25),
+                          border: InputBorder.none,
+                          hintText: "Search",
                         ),
                       ),
                     ),
                   ),
-                  const Flexible(
-                    flex: 6,
-                    child: ToDoItem(),
-                  )
-                ],
-              ),
+                ),
+                const Flexible(
+                  flex: 6,
+                  child: ToDoItem(),
+                )
+              ],
             );
           }),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 88, 149, 240),
         onPressed: () {
           Navigator.push(
             context,
@@ -99,7 +109,9 @@ class Home extends StatelessWidget {
           //     ),
           //   );
         },
-        child: const Icon(Icons.add),
+        child: const Icon(
+          Icons.add,
+        ),
       ),
     );
   }
