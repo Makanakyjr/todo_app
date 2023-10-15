@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(131, 239, 242, 243),
+        backgroundColor: const Color.fromARGB(255, 88, 149, 240),
         elevation: 0,
         title: const Row(
           children: [
@@ -20,14 +20,14 @@ class Home extends StatelessWidget {
                 style: TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
-              width: 160,
-              child: Icon(
-                Icons.settings,
-                color: Colors.black,
-                size: 30,
-              ),
-            )
+            // SizedBox(
+            //   width: 160,
+            //   child: Icon(
+            //     Icons.settings,
+            //     color: Colors.black,
+            //     size: 30,
+            //   ),
+            // )
           ],
         ),
       ),
@@ -111,15 +111,37 @@ class Home extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Yakubu Ahmed',
+                    'Yakubu Ahmed Olayinka',
                     style: TextStyle(
                       color: Colors.white,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w800,
                       fontSize: 13,
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    'olayinkakenahmed@gmail.com',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 13,
+                    ),
+                  ),
                 ],
               ),
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: const [
+                ListTile(
+                  leading: Icon(Icons.inbox),
+                  title: Text('Inbox'),
+                ),
+              ],
             ),
           ),
         ]),
