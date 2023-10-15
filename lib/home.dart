@@ -12,24 +12,16 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(131, 239, 242, 243),
         elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        title: const Row(
           children: [
-            const Icon(
-              Icons.menu,
-              color: Colors.black,
-              size: 30,
+            Center(
+              child: Text(
+                'Create Your Todo',
+                style: TextStyle(color: Colors.black),
+              ),
             ),
             SizedBox(
-              height: 50,
-              width: 50,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Image.asset(
-                    'assets/yak.jpg',
-                  )),
-            ),
-            const SizedBox(
+              width: 160,
               child: Icon(
                 Icons.settings,
                 color: Colors.black,
@@ -66,8 +58,9 @@ class Home extends StatelessWidget {
                       height: 50,
                       width: 300,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(243, 246, 246, 246),
-                          borderRadius: BorderRadius.circular(30),),
+                        color: const Color.fromARGB(243, 246, 246, 246),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
                       child: const TextField(
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(0),
@@ -92,6 +85,45 @@ class Home extends StatelessWidget {
               ],
             );
           }),
+      drawer: Drawer(
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/back.jpg'),
+              ),
+            ),
+            // padding: const EdgeInsets.all(0.0),
+            // ignore: avoid_unnecessary_containers
+            child: Container(
+              child: const Column(
+                children: [
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('assets/yak.jpg'),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Yakubu Ahmed',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        ]),
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 88, 149, 240),
         onPressed: () {
@@ -101,13 +133,6 @@ class Home extends StatelessWidget {
               builder: (context) => AddTodo(),
             ),
           );
-
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(
-          //       builder: (context) => AddTodo(),
-          //     ),
-          //   );
         },
         child: const Icon(
           Icons.add,

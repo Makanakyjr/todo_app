@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';   
+import 'package:provider/provider.dart';
 import 'package:todo_app/todo_provider.dart';
 
 class AddTodo extends StatelessWidget {
@@ -9,7 +9,7 @@ class AddTodo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 88, 149, 240),
         // leading: const BackButton(
         //   color: Colors.black,
         // ),

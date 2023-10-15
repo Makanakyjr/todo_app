@@ -38,6 +38,7 @@ dependencies:
   provider: ^6.0.5
   firebase_core: ^2.16.0
   cloud_firestore: ^4.9.2
+  floating_bottom_navigation_bar: ^1.5.2
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/yak.jpg
+   - assets/back.jpg
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
