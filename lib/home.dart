@@ -141,6 +141,22 @@ class Home extends StatelessWidget {
                   leading: Icon(Icons.inbox),
                   title: Text('Inbox'),
                 ),
+                ListTile(
+                  leading: Icon(Icons.send_and_archive),
+                  title: Text('Sent'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.message_rounded),
+                  title: Text('Messages'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.delete_forever_rounded),
+                  title: Text('Delete'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.drafts_sharp),
+                  title: Text('Draft'),
+                ),
               ],
             ),
           ),
