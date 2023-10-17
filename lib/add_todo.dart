@@ -13,10 +13,12 @@ class AddTodo extends StatelessWidget {
         // leading: const BackButton(
         //   color: Colors.black,
         // ),
-        title: const Text(
-          'New Todo',
-          style: TextStyle(
-            color: Colors.black,
+        title: const Center(
+          child: Text(
+            'New Todo',
+            style: TextStyle(
+              color: Colors.black,
+            ),
           ),
         ),
         actions: [
@@ -38,14 +40,14 @@ class AddTodo extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
         child: TextField(
           controller: titleController,
           decoration: InputDecoration(
             hintText: "Type Here",
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
-                30,
+                20,
               ),
             ),
           ),
