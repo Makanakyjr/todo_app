@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: 40,
+              height: 80,
             ),
             const Icon(
               Icons.lock_clock_sharp,
@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               hintText: ('Username'),
               obsecureText: false,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             MyTextField(
               controller: passwordController,
               hintText: ('Password'),
@@ -70,6 +70,19 @@ class _LoginPageState extends State<LoginPage> {
             SignInPage(
               onTap: signUserIn,
             ),
+            const SizedBox(height: 30),
+            const Column(
+              children: [
+                Text(
+                  'Not a member? Register now',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Color.fromARGB(255, 88, 149, 240),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
