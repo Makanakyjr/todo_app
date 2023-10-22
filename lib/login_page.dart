@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             const Icon(
               Icons.lock_clock_sharp,
@@ -37,13 +37,13 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             MyTextField(
               controller: usernameController,
               hintText: ('Username'),
               obsecureText: false,
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 20),
             MyTextField(
               controller: passwordController,
               hintText: ('Password'),
