@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/login_page.dart';
 import 'package:todo_app/signin_page.dart';
 import 'package:todo_app/textfield_todo.dart';
-import 'package:todo_app/widgets/register_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final usernameController = TextEditingController();
-
-  final passwordController = TextEditingController();
+class _RegisterPageState extends State<RegisterPage> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final confirmPassword = TextEditingController();
   void signUserIn() {}
 
   @override
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 50),
             const Text(
-              'Welcome Back',
+              'lets create an account for you!',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -41,31 +41,23 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
             MyTextField(
-              controller: usernameController,
-              hintText: ('Username'),
+              controller: email,
+              hintText: ('Email'),
               obsecureText: false,
             ),
             const SizedBox(height: 40),
             MyTextField(
-              controller: passwordController,
+              controller: password,
               hintText: ('Password'),
               obsecureText: true,
             ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Forgot Password??',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                    ),
-                  )
-                ],
-              ),
+            const SizedBox(height: 40),
+            MyTextField(
+              controller: confirmPassword,
+              hintText: ('Confirm Password'),
+              obsecureText: true,
             ),
+            const SizedBox(height: 10),
             const SizedBox(
               height: 50,
             ),
@@ -77,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Not a member? ',
+                  'Already a member? ',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -87,10 +79,13 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => const RegisterPage(), ));
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginPage()),
+                    );
                   },
                   child: const Text(
-                    'Register now',
+                    'Log In',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -99,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
