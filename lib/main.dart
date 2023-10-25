@@ -6,7 +6,6 @@ import 'package:todo_app/firebase_options.dart';
 import 'package:todo_app/login_page.dart';
 import 'package:todo_app/todo_provider.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -27,7 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255)),
       debugShowCheckedModeBanner: false,
-      home: const LoginPage(),
+      home: LoginPage(
+        onTap: () {},
+      ),
     );
   }
 }

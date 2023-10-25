@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/login_page.dart';
+import 'package:todo_app/home.dart';
+import 'package:todo_app/model/user.dart';
+// import 'package:todo_app/login_page.dart';
 import 'package:todo_app/signin_page.dart';
 import 'package:todo_app/textfield_todo.dart';
 
@@ -62,7 +64,19 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 50,
             ),
             SignInPage(
-              onTap: signUserIn,
+              onTap: () async {
+                await signUp(
+                    email: email.text.trim(),
+                    password: password.text.trim(),
+                    username: "Ahmed");
+
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                }
+              },
             ),
             const SizedBox(height: 30),
             Row(
@@ -80,8 +94,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()),
+                      MaterialPageRoute(builder: (context) => const Home()),
                     );
                   },
                   child: const Text(

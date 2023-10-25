@@ -1,18 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/home.dart';
 import 'package:todo_app/signin_page.dart';
 import 'package:todo_app/textfield_todo.dart';
 import 'package:todo_app/widgets/register_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final usernameController = TextEditingController();
-
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   void signUserIn() {}
 
@@ -41,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 20),
             MyTextField(
-              controller: usernameController,
+              controller: emailController,
               hintText: ('Username'),
               obsecureText: false,
             ),
@@ -70,7 +72,21 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
             ),
             SignInPage(
-              onTap: signUserIn,
+              onTap: () async {
+                final userCredential = await FirebaseAuth.instance
+                    .signInWithEmailAndPassword(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim());
+                print(userCredential.user!.email);
+                if (context.mounted) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ),
+                  );
+                }
+              },
             ),
             const SizedBox(height: 30),
             Row(
@@ -87,7 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => const RegisterPage(), ));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterPage(),
+                        ));
                   },
                   child: const Text(
                     'Register now',

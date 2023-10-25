@@ -20,14 +20,6 @@ class Home extends StatelessWidget {
                 style: TextStyle(color: Colors.black),
               ),
             ),
-            // SizedBox(
-            //   width: 160,
-            //   child: Icon(
-            //     Icons.settings,
-            //     color: Colors.black,
-            //     size: 30,
-            //   ),
-            // )
           ],
         ),
       ),
@@ -85,86 +77,86 @@ class Home extends StatelessWidget {
               ],
             );
           }),
-      drawer: Drawer(
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          DrawerHeader(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/back.jpg'),
-              ),
-            ),
-            // padding: const EdgeInsets.all(0.0),
-            // ignore: avoid_unnecessary_containers
-            child: Container(
-              child: const Column(
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage('assets/yak.jpg'),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Yakubu Ahmed Olayinka',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 13,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 3,
-                  ),
-                  Text(
-                    'olayinkakenahmed@gmail.com',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: const [
-                ListTile(
-                  // onTap: () {
-                  //   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=> Home(),))
-                  // },
-                  leading: Icon(Icons.inbox),
-                  title: Text('Inbox'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.send_and_archive),
-                  title: Text('Sent'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.message_rounded),
-                  title: Text('Messages'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.delete_forever_rounded),
-                  title: Text('Delete'),
-                ),
-                ListTile(
-                  leading: Icon(Icons.drafts_sharp),
-                  title: Text('Draft'),
-                ),
-              ],
-            ),
-          ),
-        ]),
-      ),
+      // drawer: Drawer(
+      //   child:
+      //       Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      //     DrawerHeader(
+      //       decoration: const BoxDecoration(
+      //         image: DecorationImage(
+      //           fit: BoxFit.fill,
+      //           image: AssetImage('assets/back.jpg'),
+      //         ),
+      //       ),
+      //       // padding: const EdgeInsets.all(0.0),
+      //       // ignore: avoid_unnecessary_containers
+      //       child: Container(
+      //         child: const Column(
+      //           children: [
+      //             SizedBox(
+      //               height: 10,
+      //             ),
+      //             CircleAvatar(
+      //               radius: 40,
+      //               backgroundImage: AssetImage('assets/yak.jpg'),
+      //             ),
+      //             SizedBox(
+      //               height: 10,
+      //             ),
+      //             Text(
+      //               'Yakubu Ahmed Olayinka',
+      //               style: TextStyle(
+      //                 color: Colors.white,
+      //                 fontWeight: FontWeight.w800,
+      //                 fontSize: 13,
+      //               ),
+      //             ),
+      //             SizedBox(
+      //               height: 3,
+      //             ),
+      //             Text(
+      //               'olayinkakenahmed@gmail.com',
+      //               style: TextStyle(
+      //                 color: Colors.white,
+      //                 fontWeight: FontWeight.w800,
+      //                 fontSize: 13,
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //     Expanded(
+      //       child: ListView(
+      //         padding: EdgeInsets.zero,
+      //         children: const [
+      //           ListTile(
+      //             // onTap: () {
+      //             //   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=> Home(),))
+      //             // },
+      //             leading: Icon(Icons.inbox),
+      //             title: Text('Inbox'),
+      //           ),
+      //           ListTile(
+      //             leading: Icon(Icons.send_and_archive),
+      //             title: Text('Sent'),
+      //           ),
+      //           ListTile(
+      //             leading: Icon(Icons.message_rounded),
+      //             title: Text('Messages'),
+      //           ),
+      //           ListTile(
+      //             leading: Icon(Icons.delete_forever_rounded),
+      //             title: Text('Delete'),
+      //           ),
+      //           ListTile(
+      //             leading: Icon(Icons.drafts_sharp),
+      //             title: Text('Draft'),
+      //           ),
+      //         ],
+      //       ),
+      //     ),
+      //   ]),
+      // ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 88, 149, 240),
         onPressed: () {

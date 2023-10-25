@@ -1,24 +1,21 @@
+// ignore: unused_import
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/add_todo.dart';
+
 
 class SignInPage extends StatelessWidget {
-  final Function()? onTap;
+
+  final void Function()? onTap;
   const SignInPage({
     super.key,
     required this.onTap,
+    // required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => AddTodo(),
-          ),
-        );
-      },
+      onTap: onTap,
       child: Container(
         width: 500,
         height: 70,
