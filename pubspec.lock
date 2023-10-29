@@ -168,6 +168,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fullscreen_scroll_view:
+    dependency: "direct main"
+    description:
+      name: fullscreen_scroll_view
+      sha256: d8548a8afa2fb247cc7a8d2386256e2effc3b287c7a935ab6936fd63727f6281
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   http_parser:
     dependency: transitive
     description:
