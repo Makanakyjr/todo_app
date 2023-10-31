@@ -24,11 +24,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255)),
+          scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(
-        onTap: () {},
-      ),
+      home: const LoginPage(),
     );
   }
 }

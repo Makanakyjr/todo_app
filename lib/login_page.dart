@@ -6,8 +6,10 @@ import 'package:todo_app/textfield_todo.dart';
 import 'package:todo_app/widgets/register_page.dart';
 
 class LoginPage extends StatefulWidget {
-  final void Function()? onTap;
-  const LoginPage({super.key, required this.onTap});
+  // final void Function()? onTap;
+  const LoginPage({
+    super.key,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -95,9 +97,10 @@ class _LoginPageState extends State<LoginPage> {
                 const Text(
                   'Not a member? ',
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
                 ),
                 const SizedBox(width: 4),
                 GestureDetector(
@@ -113,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: Color.fromARGB(255, 88, 149, 240),
+                      color: Color.fromRGBO(88, 149, 240, 1),
                     ),
                   ),
                 ),

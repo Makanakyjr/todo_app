@@ -10,9 +10,6 @@ class AddTodo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 88, 149, 240),
-        // leading: const BackButton(
-        //   color: Colors.black,
-        // ),
         title: const Center(
           child: Text(
             'New Todo',
@@ -40,15 +37,13 @@ class AddTodo extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 2),
         child: TextField(
           controller: titleController,
           decoration: InputDecoration(
-            hintText: "Type Here",
+            hintText: "Type here",
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(
-                20,
-              ),
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
         ),
